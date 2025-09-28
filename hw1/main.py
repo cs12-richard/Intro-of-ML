@@ -47,7 +47,7 @@ class LinearRegressionGradientDescent(LinearRegressionBase):
         self.intercept = None
 
     def fit(self, X, y, epochs: int, lr: float):
-        y = y.ravel()  # 確保 y 是一維陣列
+        y = y.ravel()
         n, d = X.shape
         self.weights = np.zeros(d)
         self.intercept = 0.0
