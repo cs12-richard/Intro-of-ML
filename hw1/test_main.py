@@ -4,7 +4,7 @@ Don't forget to fix the input args to align your implementation.
 import numpy as np
 import pytest
 from loguru import logger
-from main import LinearRegressionCloseform, LinearRegressionGradientdescent
+from main import LinearRegressionCloseform, LinearRegressionGradientDescent
 
 @pytest.fixture
 def slope_and_intercept():
@@ -17,7 +17,7 @@ def slope_and_intercept():
 def sample_data(slope_and_intercept):
     slope, intercept = slope_and_intercept
     n_datapoints = 100
-    xs = np.linspace(-100, 100, n_datapoints).reshape((n_datapoints, 1))
+    xs = np.linspace(-1.8, 1.8, n_datapoints).reshape((n_datapoints, 1))
     print(xs.shape)
     ys = slope * xs + intercept
     return xs, ys
@@ -38,8 +38,8 @@ def test_regression_cf(sample_data, slope_and_intercept):
 
 def test_regression_gd(sample_data, slope_and_intercept):
     x, y = sample_data
-    model = LinearRegressionGradientdescent()
-    model.fit(x, y, learning_rate=1e-4, epochs=70000)
+    model = LinearRegressionGradientDescent()
+    model.fit(x, y, epochs=1000000, lr=0.00018)
 
     logger.info(f'{model.weights=}, {model.intercept=}')
     slope, intercept = slope_and_intercept
