@@ -17,7 +17,7 @@ def slope_and_intercept():
 def sample_data(slope_and_intercept):
     slope, intercept = slope_and_intercept
     n_datapoints = 100
-    xs = np.linspace(-1.8, 1.8, n_datapoints).reshape((n_datapoints, 1))
+    xs = np.linspace(-100, 100, n_datapoints).reshape((n_datapoints, 1))
     print(xs.shape)
     ys = slope * xs + intercept
     return xs, ys
